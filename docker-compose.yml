@@ -3,6 +3,8 @@ services:
   goof:
     build: .
     container_name: goof
+    cap_drop:
+      - NET_RAW
     environment:
       - DOCKER=1
     ports:
@@ -20,6 +22,8 @@ services:
   good-mysql:
     container_name: goof-mysql
     image: mysql:5
+    cap_drop:
+      - NET_RAW
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: acme
