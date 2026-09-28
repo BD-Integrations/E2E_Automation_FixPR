@@ -3,6 +3,8 @@ services:
   goof:
     build: .
     container_name: goof
+    cap_drop:
+      - NET_RAW
     environment:
       - DOCKER=1
     ports:
