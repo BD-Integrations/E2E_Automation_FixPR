@@ -46,7 +46,12 @@ app.use(session({
 }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(fileUpload());
+app.use(fileUpload({
+  limits: {
+    files: 10,
+    fields: 100
+  }
+}));
 
 // Routes
 app.use(routes.current_user);
